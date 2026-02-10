@@ -5,24 +5,24 @@
 using namespace std;
 
 void Student::input() {
-    cout << "ÔÈÎ: "; getline(cin, fullName);
-    cout << "Äàòà ğîæäåíèÿ: "; getline(cin, birthDate);
-    cout << "Òåëåôîí: "; getline(cin, phone);
-    cout << "Ãîğîä: "; getline(cin, city);
-    cout << "Ñòğàíà: "; getline(cin, country);
-    cout << "Ó÷åáíîå çàâåäåíèå: "; getline(cin, schoolName);
-    cout << "Ãîğîä ó÷åáíîãî çàâåäåíèÿ: "; getline(cin, schoolCity);
-    cout << "Ñòğàíà ó÷åáíîãî çàâåäåíèÿ: "; getline(cin, schoolCountry);
-    cout << "Íîìåğ ãğóïïû: "; getline(cin, groupNumber);
+    cout << "Ğ¤Ğ˜Ğ: "; getline(cin, fullName);
+    cout << "Ğ”Ğ°Ñ‚Ğ° Ñ€Ğ¾Ğ¶Ğ´ĞµĞ½Ğ¸Ñ: "; getline(cin, birthDate);
+    cout << "Ğ¢ĞµĞ»ĞµÑ„Ğ¾Ğ½: "; getline(cin, phone);
+    cout << "Ğ“Ğ¾Ñ€Ğ¾Ğ´: "; getline(cin, city);
+    cout << "Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ°: "; getline(cin, country);
+    cout << "Ğ£Ñ‡ĞµĞ±Ğ½Ğ¾Ğµ Ğ·Ğ°Ğ²ĞµĞ´ĞµĞ½Ğ¸Ğµ: "; getline(cin, schoolName);
+    cout << "Ğ“Ğ¾Ñ€Ğ¾Ğ´ ÑƒÑ‡ĞµĞ±Ğ½Ğ¾Ğ³Ğ¾ Ğ·Ğ°Ğ²ĞµĞ´ĞµĞ½Ğ¸Ñ: "; getline(cin, schoolCity);
+    cout << "Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ° ÑƒÑ‡ĞµĞ±Ğ½Ğ¾Ğ³Ğ¾ Ğ·Ğ°Ğ²ĞµĞ´ĞµĞ½Ğ¸Ñ: "; getline(cin, schoolCountry);
+    cout << "ĞĞ¾Ğ¼ĞµÑ€ Ğ³Ñ€ÑƒĞ¿Ğ¿Ñ‹: "; getline(cin, groupNumber);
 }
 
 void Student::print() {
     cout << "----------------------------" << endl;
-    cout << "Êàğòî÷êà ñòóäåíòà" << endl;
-    cout << "Ñòóäåíò: " << fullName << " (Ãğóïïà: " << groupNumber << ")" << endl;
-    cout << "Äàòà ğîæäåíèÿ: " << birthDate << endl;
-    cout << "Êîíòàêòû: " << phone << endl;
-    cout << "Ìåñòî æèòåëüñòâà: " << city << ", " << country << endl;
-    cout << "Ìåñòî ó÷åáû: " << schoolName << " (" << schoolCity << ", " << schoolCountry << ")" << endl;
+    cout << "ĞšĞ°Ñ€Ñ‚Ğ¾Ñ‡ĞºĞ° ÑÑ‚ÑƒĞ´ĞµĞ½Ñ‚Ğ°" << endl;
+    cout << "Ğ¡Ñ‚ÑƒĞ´ĞµĞ½Ñ‚: " << fullName << " (Ğ“Ñ€ÑƒĞ¿Ğ¿Ğ°: " << groupNumber << ")" << endl;
+    cout << "Ğ”Ğ°Ñ‚Ğ° Ñ€Ğ¾Ğ¶Ğ´ĞµĞ½Ğ¸Ñ: " << birthDate << endl;
+    cout << "ĞšĞ¾Ğ½Ñ‚Ğ°ĞºÑ‚Ñ‹: " << phone << endl;
+    cout << "ĞœĞµÑÑ‚Ğ¾ Ğ¶Ğ¸Ñ‚ĞµĞ»ÑŒÑÑ‚Ğ²Ğ°: " << city << ", " << country << endl;
+    cout << "ĞœĞµÑÑ‚Ğ¾ ÑƒÑ‡ĞµĞ±Ñ‹: " << schoolName << " (" << schoolCity << ", " << schoolCountry << ")" << endl;
     cout << "----------------------------" << endl;
 }
