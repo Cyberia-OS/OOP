@@ -7,14 +7,14 @@ public:
     int denominator;
 
     void input() {
-        std::cout << "ââåäèòå ÷èñëèòåëü: ";
+        std::cout << "Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¸Ñ‚ĞµĞ»ÑŒ: ";
         std::cin >> numerator;
 
         do {
-            std::cout << "ââåäèòå çíàìåíàòåëü (íå 0): ";
+            std::cout << "Ğ²Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ·Ğ½Ğ°Ğ¼ĞµĞ½Ğ°Ñ‚ĞµĞ»ÑŒ (Ğ½Ğµ 0): ";
             std::cin >> denominator;
             if (denominator == 0) {
-                std::cout << "îøèáêà: çíàìåíàòåëü íå ìîæåò áûòü íóëåâûì!\n";
+                std::cout << "Ğ¾ÑˆĞ¸Ğ±ĞºĞ°: Ğ·Ğ½Ğ°Ğ¼ĞµĞ½Ğ°Ñ‚ĞµĞ»ÑŒ Ğ½Ğµ Ğ¼Ğ¾Ğ¶ĞµÑ‚ Ğ±Ñ‹Ñ‚ÑŒ Ğ½ÑƒĞ»ĞµĞ²Ñ‹Ğ¼!\n";
             }
         } while (denominator == 0);
 
@@ -25,7 +25,7 @@ public:
         std::cout << numerator << "/" << denominator;
     }
 
-    //ôóíêöèÿ ñëîæåíèÿ
+    //Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ ÑĞ»Ğ¾Ğ¶ĞµĞ½Ğ¸Ñ
     fraction add(fraction other) {
         fraction result;
         result.numerator = numerator * other.denominator + other.numerator * denominator; //(a*d + c*b) / (b*d)
@@ -44,7 +44,7 @@ public:
 
     fraction multiply(fraction other) {
         fraction result;
-        result.numerator = numerator * other.numerator; //ôîğìóëà: (a*c) / (b*d)
+        result.numerator = numerator * other.numerator; //Ñ„Ğ¾Ñ€Ğ¼ÑƒĞ»Ğ°: (a*c) / (b*d)
         result.denominator = denominator * other.denominator;
         result.simplify();
         return result;
@@ -52,12 +52,12 @@ public:
 
     fraction divide(fraction other) {
         fraction result;
-        //óìíîæåíèå íà ïåğåâåğíóòóş äğîáü (a/b * d/c)
+        //ÑƒĞ¼Ğ½Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ Ğ½Ğ° Ğ¿ĞµÑ€ĞµĞ²ĞµÑ€Ğ½ÑƒÑ‚ÑƒÑ Ğ´Ñ€Ğ¾Ğ±ÑŒ (a/b * d/c)
         result.numerator = numerator * other.denominator;
         result.denominator = denominator * other.numerator;
 
         if (result.denominator == 0) {
-            std::cout << "îøèáêà äåëåíèÿ íà 0 ";
+            std::cout << "Ğ¾ÑˆĞ¸Ğ±ĞºĞ° Ğ´ĞµĞ»ĞµĞ½Ğ¸Ñ Ğ½Ğ° 0 ";
             result.denominator = 1;
         }
 
@@ -80,7 +80,7 @@ public:
             denominator /= nod;
         }
 
-        //åñëè çíàìåíàòåëü îòğèöàòåëüíûé ïåğåíîñèì ìèíóñ íàâåğõ
+        //ĞµÑĞ»Ğ¸ Ğ·Ğ½Ğ°Ğ¼ĞµĞ½Ğ°Ñ‚ĞµĞ»ÑŒ Ğ¾Ñ‚Ñ€Ğ¸Ñ†Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ñ‹Ğ¹ Ğ¿ĞµÑ€ĞµĞ½Ğ¾ÑĞ¸Ğ¼ Ğ¼Ğ¸Ğ½ÑƒÑ Ğ½Ğ°Ğ²ĞµÑ€Ñ…
         if (denominator < 0) {
             numerator = -numerator;
             denominator = -denominator;
