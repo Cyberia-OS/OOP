@@ -7,9 +7,8 @@ using namespace std;
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
     Student student;
-    cout << "Ââåäèòå äàííûå ñòóäåíòà:" << endl;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð°:" << endl;
     student.input();
     student.print();
     return 0;
