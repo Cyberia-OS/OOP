@@ -1,0 +1,115 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+class Point {
+private:
+    int x, y;
+public:
+    inline Point(int xVal = 0, int yVal = 0) : x(xVal), y(yVal) {}
+    inline void print() const { cout << "Точка(" << x << ", " << y << ")" << endl; }
+};
+
+class Fraction {
+private:
+    int numerator;
+    int denominator;
+public:
+    inline Fraction(int num = 0, int den = 1) : numerator(num), denominator(den == 0 ? 1 : den) {}
+    inline void print() const { cout << numerator << "/" << denominator << endl; }
+};
+
+class Student {
+private:
+    char* fullName;
+    int age;
+public:
+    Student(const char* name, int age) : age(age) {
+        fullName = new char[strlen(name) + 1];
+        strcpy(fullName, name);
+        cout << "ЛОГ: Конструктор для " << fullName << endl;
+    }
+
+    ~Student() {
+        cout << "ЛОГ: Деструктор для " << (fullName ? fullName : "пусто") << endl;
+        delete[] fullName;
+    }
+
+    Student(const Student& other) : age(other.age) {
+        fullName = new char[strlen(other.fullName) + 1];
+        strcpy(fullName, other.fullName);
+    }
+
+    inline void showInfo() const {
+        cout << "Студент: " << fullName << ", Возраст: " << age << endl;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+
+    int choice;
+
+    do {
+        cout << "\nменю выбора задания\n";
+        cout << "1 - Задание 1: Класс Точка\n";
+        cout << "2 - Задание 2-3: Класс Дробь\n";
+        cout << "3 - Задание 4: Класс Студент\n";
+        cout << "0 - Выход\n";
+        cout << "Выберите задание: ";
+        cin >> choice;
+
+        cout << "\n";
+
+        switch (choice) {
+        case 1: {
+            cout << "Задание 1: Точка\n";
+            int x, y;
+            cout << "Введите координаты x и y: ";
+            cin >> x >> y;
+            Point p(x, y);
+            p.print();
+            break;
+        }
+
+        case 2: {
+            cout << "Задание 2-3: Дробь\n";
+            int num, den;
+            cout << "Введите числитель и знаменатель: ";
+            cin >> num >> den;
+            Fraction f(num, den);
+            f.print();
+            break;
+        }
+
+        case 3: {
+            cout << "Задание №4: Студент\n";
+            char name[100];
+            int age;
+            cout << "Введите ФИО студента: ";
+            cin.ignore(); 
+            cin.getline(name, 100);
+            cout << "Введите возраст: ";
+            cin >> age;
+
+            {
+                Student s(name, age);
+                s.showInfo();
+            } 
+            break;
+        }
+
+        case 0:
+            cout << "Выход из программы.\n";
+            break;
+
+        default:
+            cout << "Ошибка: неверный выбор. Попробуйте снова\n";
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
