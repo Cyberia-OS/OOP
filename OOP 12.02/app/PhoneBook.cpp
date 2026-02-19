@@ -33,19 +33,19 @@ Contact& Contact::operator=(const Contact& other) {
 Contact::~Contact() { delete[] fullName; }
 
 void Contact::display() const {
-    cout << "ÔÈÎ: " << (fullName ? fullName : "---") << "\nÌîá: " << mobilePhone << "\nÈíôî: " << info << "\n\n";
+    cout << "Ð¤Ð˜Ðž: " << (fullName ? fullName : "---") << "\nÐœÐ¾Ð±: " << mobilePhone << "\nÐ˜Ð½Ñ„Ð¾: " << info << "\n\n";
 }
 
 void Contact::saveToFile(ofstream& out) const {
     out << fullName << "\n" << homePhone << "\n" << workPhone << "\n" << mobilePhone << "\n" << info << "\n";
 }
 
-// Ðåàëèçàöèÿ PhoneBook
+// Ð ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ PhoneBook
 void PhoneBook::addContact() {
     string n, h, w, m, i;
-    cout << "ÔÈÎ: "; getline(cin >> ws, n);
-    cout << "Ìîá: "; getline(cin, m);
-    cout << "Èíôî: "; getline(cin, i);
+    cout << "Ð¤Ð˜Ðž: "; getline(cin >> ws, n);
+    cout << "ÐœÐ¾Ð±: "; getline(cin, m);
+    cout << "Ð˜Ð½Ñ„Ð¾: "; getline(cin, i);
     contacts.emplace_back(n.c_str(), h, w, m, i);
 }
 
