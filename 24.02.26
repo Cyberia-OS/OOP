@@ -1,0 +1,93 @@
+
+#include <iostream>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+class Geometry {
+    static int count;
+public:
+    static double sq(double s) { count++; return s * s; }
+    static double rect(double a, double b) { count++; return a * b; }
+    static double tri(double b, double h) { count++; return 0.5 * b * h; }
+    static int getCount() { return count; }
+};
+int Geometry::count = 0;
+
+class Point {
+    int x, y;
+    static int cnt;
+public:
+    Point(int xV, int yV) : x(xV), y(yV) { cnt++; }
+    Point() : Point(0, 0) {}
+    static int getCount() { return cnt; }
+};
+int Point::cnt = 0;
+
+class Fraction {
+    int n, d;
+    static int cnt;
+public:
+    Fraction(int nv, int dv) : n(nv), d(dv == 0 ? 1 : dv) { cnt++; }
+    Fraction() : Fraction(0, 1) {}
+    static int getCount() { return cnt; }
+};
+int Fraction::cnt = 0;
+
+class Student {
+    char* name;
+    static int cnt;
+public:
+    Student(const char* n) {
+        name = new char[strlen(n) + 1];
+        strcpy(name, n);
+        cnt++;
+    }
+    Student() : Student("Неизвестно") {}
+    ~Student() { delete[] name; cnt--; }
+    static int getCount() { return cnt; }
+};
+int Student::cnt = 0;
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int c;
+    do {
+        cout << "\n1. Геометрия (ввод данных)\n2. Объекты (создание)\n0. Выход\nВыбор: ";
+        cin >> c;
+
+        if (c == 1) {
+            double s, a, b, h;
+            cout << "Введите сторону квадрата: "; cin >> s;
+            cout << "Площадь: " << Geometry::sq(s) << endl;
+            cout << "Введите основание и высоту треугольника: "; cin >> b >> h;
+            cout << "Площадь: " << Geometry::tri(b, h) << endl;
+            cout << "Всего расчетов: " << Geometry::getCount() << endl;
+        }
+        else if (c == 2) {
+            int px, py, fn, fd;
+            char sname[100];
+
+            cout << "Введите X и Y для точки: "; cin >> px >> py;
+            Point p(px, py);
+
+            cout << "Введите числитель и знаменатель дроби: "; cin >> fn >> fd;
+            Fraction f(fn, fd);
+
+            cout << "Введите имя студента: ";
+            cin.ignore();
+            cin.getline(sname, 100);
+            Student* s = new Student(sname);
+
+            cout << "\nСоздано объектов:\n";
+            cout << "Точек: " << Point::getCount() << endl;
+            cout << "Дробей: " << Fraction::getCount() << endl;
+            cout << "Студентов: " << Student::getCount() << endl;
+
+            delete s;
+            cout << "Студентов после удаления: " << Student::getCount() << endl;
+        }
+    } while (c != 0);
+    return 0;
+}
