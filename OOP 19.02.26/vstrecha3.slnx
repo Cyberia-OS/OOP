@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="vstrecha3/vstrecha3.vcxproj" Id="1d0cc50e-706f-435b-8cde-60e5947295f2" />
+</Solution>
