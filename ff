@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Table {
+private:
+    vector<int> elements;
+
+public:
+    Table() = default;
+    Table(initializer_list<int> list) : elements(list) {
+        elements.erase(unique(elements.begin(), elements.end()), elements.end());
+    }
+
+    bool operator==(const Table& other) const {
+        return elements == other.elements;
+    }
+
+    friend ostream& operator<<(ostream& os, const Table& t) {
+        os << "{";
+        for (size_t i = 0; i < t.elements.size(); ++i) {
+            os << t.elements[i];
+            if (i + 1 < t.elements.size()) os << ", ";
+        }
+        os << "}";
+        return os;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "RU");
+
+    Table A = { 3, 8, 46, 5, 11 };
+    Table B = { 18, 8, 90, 11, 2 };
+
+    cout << "A = " << A << endl;
+    cout << "B = " << B << endl;
+
+    if (A == B)
+        cout << "Множества равны" << endl;
+    else
+        cout << "Множества разные" << endl;
+
+    return 0;
+}
